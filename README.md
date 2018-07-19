@@ -52,10 +52,34 @@ x0      x1
 n-2 --> k-2
 ```
 
-> 从上表可以得到转换公式：x1=(x+k)% n_0   k=q% n_0，替换后为 x1=(x+q%n_0)%n_0=(x+q)%n_0，由此可以得到递推公式：
+> 从上表可以得到转换公式：
+
+> x1=(x+k)% n_0   k=q% n_0
+
+> 替换后为:
+
+> x1=(x+q%n_0)%n_0=(x+q)%n_0
+
+> 由此可以得到递推公式：
 
 > Joseph[n]=(Joseph[n-1]+q)%n
 
 > Joseph[1]=0   
 
 > 最终结果+1即为编号
+
+# 代码如下
+```python
+def joseph(n,q):
+    if n==1:
+        return 0
+    else:
+        return (joseph(n-1,q)+q)%n
+
+if __name__ == '__main__':
+    n=1
+    q=3
+    res=joseph(n,q)+1
+    print(res)
+
+```
